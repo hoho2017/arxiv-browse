@@ -207,21 +207,21 @@ window.addEventListener('load', function() {
 });
 
 document.addEventListener("DOMContentLoaded", () => {
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const href = this.getAttribute('href');
-        const targetElement = document.getElementById(href.substring(1));
-        const position = targetElement.getBoundingClientRect();
-        if (targetElement) {
-          window.scrollTo({left: position.left, 
-                           top: position.top + window.scrollY - 60, 
-                           behavior: 'smooth'});
-        } else {
-          console.warn('No element found for selector:', href);
-        }
-      });
-    });
+    // document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    //   anchor.addEventListener('click', function (e) {
+    //     e.preventDefault();
+    //     const href = this.getAttribute('href');
+    //     const targetElement = document.getElementById(href.substring(1));
+    //     const position = targetElement.getBoundingClientRect();
+    //     if (targetElement) {
+    //       window.scrollTo({left: position.left, 
+    //                        top: position.top + window.scrollY - 60, 
+    //                        behavior: 'smooth'});
+    //     } else {
+    //       console.warn('No element found for selector:', href);
+    //     }
+    //   });
+    // });
     document.querySelector('.ltx_page_main').id = 'main';
 
     ref_ArXivFont();
