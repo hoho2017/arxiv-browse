@@ -403,11 +403,11 @@ def ensure_html(session, host, arxiv_id: Identifier):
     html_path = Path(f"{PS_CACHE_PREFIX}/{archive}/html/{arxiv_id.yymm}/{arxiv_id.id}v{arxiv_id.version}/")
     url = f"https://{host}/html/{arxiv_id.id}v{arxiv_id.version}"
 
-    def _get_files_for_html (path: str) -> List[str]:
-        files = []
-        for root_dir, cur_dir, files in os.walk(html_path):
-            files.extend(map(lambda file: os.path.join(root_dir, file), files))
-        return files
+    def _get_files_for_html(path: str) -> List[str]:
+        files_for_html: List[str] = []
+        for root_dir, cur_dir, walk_files in os.walk(path):
+            files_for_html.extend(map(lambda file: os.path.join(root_dir, file), walk_files))
+        return files_for_html
 
     start = perf_counter()
 
